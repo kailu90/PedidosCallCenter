@@ -1,0 +1,208 @@
+:root {
+    --primary: #006d77; /* Color Teal de Molle */
+    --accent: #e63946;
+    --bg-light: #f1f5f9;
+    --text-dark: #334155;
+    --white: #ffffff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+.main-header {
+    background: var(--primary);
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.app-container {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    height: calc(100vh - 64px);
+}
+
+/* Panel de Menú */
+.menu-panel {
+    display: grid;
+    grid-template-columns: 200px 1fr; /* 200px para categorías, el resto para productos */
+    gap: 20px;
+    height: calc(100vh - 100px); /* Ajusta a la altura de la pantalla */
+    align-items: start;
+}
+
+.categories {
+    display: flex;
+    flex-direction: column; /* Cambiamos a vertical */
+    gap: 8px;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    overflow-y: auto; /* Scroll vertical si hay demasiadas categorías */
+    max-height: 100%;
+}
+
+.cat-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background: #cbd5e1;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.cat-btn.active { background: var(--primary); color: white; }
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.card {
+    background: var(--white);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    cursor: pointer;
+    transition: transform 0.2s;
+    border: 1px solid #e2e8f0;
+}
+
+.card:hover { transform: translateY(-3px); border-color: var(--primary); }
+
+.card h4 { margin-bottom: 5px; font-size: 0.9rem; }
+.card .price { color: var(--primary); font-weight: bold; }
+
+/* Comanda */
+.order-panel {
+    background: var(--white);
+    border-left: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.order-items { flex-grow: 1; overflow-y: auto; }
+
+.item-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.order-footer { border-top: 2px solid #f1f5f9; padding-top: 20px; }
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.btn-print {
+    width: 100%;
+    padding: 15px;
+    background: #10b981;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/***Estilos modal variedades productos*****/
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Oscurece el fondo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Siempre por encima de todo */
+}
+
+/* Tarjeta del modal */
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+/* Título del producto en el modal */
+#modal-titulo {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+/* Grid de botones de tamaño */
+.opciones-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* Botones de tamaño individuales */
+.btn-tamano {
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.btn-tamano:hover {
+    border-color: #007bff;
+    background: #e7f1ff;
+    transform: translateY(-3px);
+}
+
+.btn-tamano strong {
+    color: #007bff;
+    font-size: 1.1rem;
+}
+
+/* Botón cerrar/cancelar */
+.btn-cancelar {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+
+
+@media print {
+    .no-print { display: none; }
+    .app-container { display: block; }
+    .order-panel { width: 100%; border: none; }
+}
