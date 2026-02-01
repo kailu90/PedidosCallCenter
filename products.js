@@ -8,20 +8,20 @@ const preciosPastas = {
     alBurro:         { "Unidad": 23000 },
     bolognesa:       { "Unidad": 36000 },
     polloChampiñon:  { "Unidad": 36000 },
-    carbonara:       { "Unidad": 32500 },
+    carbonara:       { "Unidad": 36000 },
     marinera:        { "Unidad": 42000 },
     pestoCamarones:  { "Unidad": 38000 },
     alfredoPollo:    { "Unidad": 36000 },
     amatriziana:     { "Unidad": 32000 }
 };
 const preciosLasañas = {
-    lasañaMixta: { "Personal": 34000, "Mini": 24500},
-    LasañaNapolitanaPolloChampiñon: { "Personal": 34000, "Mini": 24500},
-    lasañaVegetalesPollo: { "Personal": 34000, "Mini": 24500},
-    lasañaMolle: { "Personal": 34000, "Mini": 24500},
-    lasañaPolloChampiñones: { "Personal": 34000, "Mini": 24500},
-    lasañaBolognesa: { "Personal": 34000, "Mini": 24500},
-    lasañaVegetariana: { "Personal": 34000, "Mini": 24500},
+    lasañaMixta: { "Personal": 37400 },
+    LasañaNapolitanaPolloChampiñon:  { "Personal": 37400 },
+    lasañaVegetalesPollo:  { "Personal": 37400 },
+    lasañaMolle:  { "Personal": 37400 },
+    lasañaPolloChampiñones:  { "Personal": 37400 },
+    lasañaBolognesa:  { "Personal": 37400 },
+    lasañaVegetariana: { "Personal": 37400 },
     lasañaMarinera: { "Personal": 42000}
 };
 const preciosPizzas = {
@@ -42,8 +42,8 @@ const preciosEstandarAdiciones = {
 };
 
 const preciosVariedades = {
-    calzone: { "Personal": 24000, "Grande": 53000 },
-    stromboli: { "Unidad": 28000 },
+    calzone: { "Personal": 36000, "Grande": 53000 },
+    stromboli: { "Unidad": 30000 },
     maizGratinado: { "Sencillo": 21000, "Con Pollo (50 gr)": 26000 },
     champiñonesGratinados: { "Unidad": 26000 }
 };
@@ -80,7 +80,6 @@ const preciosBebidas = {
     // Jugos Naturales
     jugoEnAgua:         { "Unidad": 9500 },
     jugoEnLeche:        { "Unidad": 11600 },
-    jugoMandarina:      { "Unidad": 16500 },
 
     // Refrescos
     jugoHitVidrio:      { "Unidad": 4800 },
@@ -89,10 +88,12 @@ const preciosBebidas = {
 
     // Especialidades
     malteadas:          { "Unidad": 17000 },
-    granizados:         { "Unidad": 16000 },
+    granizados:         { "Unidad": 16500 },
     sodasMicheladas:    { "Unidad": 16500 },
     tamarindoMichelado: { "Unidad": 10500 },
-    infusiones:         { "Unidad": 7200 },
+    bebidaConLicor:     { "unidad": 20000 },
+    infusiones:         { "Unidad": 7400 },
+    cafeOrigen:         { "unidad": 6800 },
     brownieHelado:      { "Unidad": 12700 }
 };
 
@@ -125,63 +126,63 @@ const menuData = {
         { nombre: "Napolitana Pollo Champiñon", opciones: preciosLasañas.LasañaNapolitanaPolloChampiñon , descripcion: "Pollo, cahampiñones, rodajas de tomate, salsa napolitana y albahaca genovesa."  },
         { nombre: "Lasaña Vegetales Pollo", opciones: preciosLasañas.lasañaVegetalesPollo , descripcion: "Pollo, cebolla, tomate, pimentón asado, aceitunas, champiñones, y salsa napolitana." },
         { nombre: "Lasaña Molle", opciones: preciosLasañas.lasañaMolle , descripcion: "Pollo, champiñones y salsa napolitana." },
-        { nombre: "Lasaña Pollo Champiñones", opciones: preciosLasañas.lasañaPolloChampiñones },
-        { nombre: "Lasaña Bolognesa", opciones: preciosLasañas.lasañaBolognesa },
-        { nombre: "Lasaña Vegetariana", opciones: preciosLasañas.lasañaVegetariana },
-        { nombre: "Lasaña Marinera", opciones: preciosLasañas.lasañaMarinera }
+        { nombre: "Lasaña Pollo Champiñones", opciones: preciosLasañas.lasañaPolloChampiñones , descripcion: "Pollo, champiñones y salsa napolitana."  },
+        { nombre: "Lasaña Bolognesa", opciones: preciosLasañas.lasañaBolognesa , descripcion: "Carne a la bolognesa y salsa napolitana."  },
+        { nombre: "Lasaña Vegetariana", opciones: preciosLasañas.lasañaVegetariana , descripcion: "Cebolla, tomate, pimentón asado, aceitunas, champiñones y salsa napolitana."  },
+        { nombre: "Lasaña Marinera", opciones: preciosLasañas.lasañaMarinera , descripcion: "Camarón, calamar, palmitos y salsa napolitana."  }
     ],
 
 //*****Variedades de los sabores de las pizzas********/
     "Pizzas Super Estofadas": [
-        { nombre: "Super Estofada de Carnes", opciones: preciosPizzas.superEstofada },
-        { nombre: "Super Estofada Hawaiana", opciones: preciosPizzas.superEstofada },
-        { nombre: "Super Estofada Suprema", opciones: preciosPizzas.superEstofada }
+        { nombre: "Super Estofada de Carnes", opciones: preciosPizzas.superEstofada , descripcion: "Jamón, salchicha, salami, pollo, champiñon, queso crema, extra queso y salsa napolitana." },
+        { nombre: "Super Estofada Hawaiana", opciones: preciosPizzas.superEstofada , descripcion: "Jamón, piña, queso crema, extra queso y salsa napolitana." },
+        { nombre: "Super Estofada Suprema", opciones: preciosPizzas.superEstofada , descripcion: "Jamón, salchicha, salami, cebolla, pimentón asado, queso crema, extra queso y salsa napolitana." }
     ],
     "Pizzas Estofadas": [
-        { nombre: "Estofada de Carnes", opciones: preciosPizzas.estofada },
-        { nombre: "Estofada Hawaiana", opciones: preciosPizzas.estofada },
-        { nombre: "Estofada Suprema", opciones: preciosPizzas.estofada }
+        { nombre: "Estofada de Carnes", opciones: preciosPizzas.estofada ,  descripcion: "Jamón, salchicha, salami, pollo, champiñon, queso y salsa napolitana." },
+        { nombre: "Estofada Hawaiana", opciones: preciosPizzas.estofada , descripcion: "Jamón, piña, queso y salsa napolitana." },
+        { nombre: "Estofada Suprema", opciones: preciosPizzas.estofada ,  descripcion: "Jamón, salchicha, salami, cebolla, pimentón asado, queso y salsa napolitana." }
     ],
     "Pizzas Especiales": [
-        { nombre: "Mexicana", opciones: preciosPizzas.especial },
-        { nombre: "Indio", opciones: preciosPizzas.especial },
-        { nombre: "Suprema Pepperoni", opciones: preciosPizzas.especial },
-        { nombre: "Criolla", opciones: preciosPizzas.especial },
-        { nombre: "Hawaiana Chic", opciones: preciosPizzas.especial },
-        { nombre: "Teriyaki", opciones: preciosPizzas.especial },
-        { nombre: "Carnivora", opciones: preciosPizzas.especial },
-        { nombre: "Bolognesa", opciones: preciosPizzas.especial },
-        { nombre: "Mediterranea", opciones: preciosPizzas.especial },
-        { nombre: "Ventana", opciones: preciosPizzas.especial },
-        { nombre: "Paisa", opciones: preciosPizzas.especial },
-        { nombre: "Pizza Molle", opciones: preciosPizzas.especial }        
+        { nombre: "Mexicana", opciones: preciosPizzas.especial , descripcion: "Carne a la bolognesa, jamón, tomate, cilantro, jalapeño y tostacos." },
+        { nombre: "Indio", opciones: preciosPizzas.especial , descripcion: "Pollo, pico e'gallo, cebolla y jalapeño."},
+        { nombre: "Suprema Pepperoni", opciones: preciosPizzas.especial , descripcion: "Jamón, salchicha, salami, cebolla y pimentón asado."},
+        { nombre: "Criolla", opciones: preciosPizzas.especial , descripcion: "Carne deshilachada, tocineta y maiz tierno."},
+        { nombre: "Hawaiana Chic", opciones: preciosPizzas.especial , descripcion: "Piña, tocineta y BBQ."},
+        { nombre: "Teriyaki", opciones: preciosPizzas.especial , descripcion: "Carne a la bolognesa o pollo desmechado, vegetales al wok (cebolla, zuquini y pimentón asado) eb salsa teriyaki."},
+        { nombre: "Carnivora", opciones: preciosPizzas.especial , descripcion: "Jamón, salchicha, salami, chorizo de ternera y tocineta." },
+        { nombre: "Bolognesa", opciones: preciosPizzas.especial , descripcion: "Carne a la bolognesa y tocineta."},
+        { nombre: "Mediterranea", opciones: preciosPizzas.especial , descripcion: "Pepperoni, tomate y aceitunas." },
+        { nombre: "Ventana", opciones: preciosPizzas.especial , descripcion: "Tomate, pepperoni, aceitunas, champiñones y cebolla."},
+        { nombre: "Paisa", opciones: preciosPizzas.especial , descripcion: "Tocineta, chorizo de ternera, jamón y maiz tierno."},
+        { nombre: "Pizza Molle", opciones: preciosPizzas.especial , descripcion: "Pollo, champiñon, maíz tierno y maduro al horno."}        
     ],
     "Pizzas Gourmet": [
-        { nombre: "Personal Camaron", opciones: preciosPizzas.gourmet }     
+        { nombre: "Personal Camaron", opciones: preciosPizzas.gourmet , descripcion: "Queso mozzarella, cebolla, perejil y camarón." }     
     ],
     "Pizzas Clásicas": [
-        { nombre: "Pollo y Queso", opciones: preciosPizzas.clasica },
-        { nombre: "Champiñones y Queso", opciones: preciosPizzas.clasica },
-        { nombre: "Jamon y Queso", opciones: preciosPizzas.clasica  },
-        { nombre: "Doble Queso", opciones: preciosPizzas.clasica },
-        { nombre: "Hawaiana", opciones: preciosPizzas.clasica },
-        { nombre: "Carnes", opciones: preciosPizzas.clasica },
-        { nombre: "Napolitana", opciones: preciosPizzas.clasica }
+        { nombre: "Pollo y Queso", opciones: preciosPizzas.clasica , descripcion: "Queso mozzarella y pollo." },
+        { nombre: "Champiñones y Queso", opciones: preciosPizzas.clasica ,  descripcion: "Queso mozzarella y champiñones."},
+        { nombre: "Jamon y Queso", opciones: preciosPizzas.clasica , descripcion: "Queso mozzarella y jamón." },
+        { nombre: "Doble Queso", opciones: preciosPizzas.clasica , descripcion: "Doble porción de queso mozzarella."},
+        { nombre: "Hawaiana", opciones: preciosPizzas.clasica , descripcion: "Queso mozzarella, jamón y piña."},
+        { nombre: "Carnes", opciones: preciosPizzas.clasica , descripcion: "Queso mozzarella, jamón, cábano y salami." },
+        { nombre: "Napolitana", opciones: preciosPizzas.clasica , descripcion: "Queso mozzarella, tomate y orégano."}
     ],
     "Pizzas Típicas": [
-        { nombre: "California", opciones: preciosPizzas.tipica },
-        { nombre: "Pollo Miel - Mostaza", opciones: preciosPizzas.tipica },
-        { nombre: "Caprichosa", opciones: preciosPizzas.tipica },
-        { nombre: "Samba", opciones: preciosPizzas.tipica },
-        { nombre: "Ciruelas y Tocineta", opciones: preciosPizzas.tipica },
-        { nombre: "Toc", opciones: preciosPizzas.tipica },
-        { nombre: "Vegetariana", opciones: preciosPizzas.tipica },
-        { nombre: "Frutti Molle", opciones: preciosPizzas.tipica },
-        { nombre: "Bocadillo Tocineta", opciones: preciosPizzas.tipica },
-        { nombre: "Suprema", opciones: preciosPizzas.tipica },
-        { nombre: "Pollo Bbq", opciones: preciosPizzas.tipica },
-        { nombre: "Pollo Champiñones", opciones: preciosPizzas.tipica },
-        { nombre: "Pepperoni Americano", opciones: preciosPizzas.tipica }        
+        { nombre: "California", opciones: preciosPizzas.tipica , descripcion: "Champiñones y tomates cherry."},
+        { nombre: "Pollo Miel - Mostaza", opciones: preciosPizzas.tipica , descripcion: "Pollo y salsa miel mostaza." },
+        { nombre: "Caprichosa", opciones: preciosPizzas.tipica , descripcion: "Maduro al horno, pepperoni." },
+        { nombre: "Samba", opciones: preciosPizzas.tipica , descripcion: "Maduro al horno, pepperoni."},
+        { nombre: "Ciruelas y Tocineta", opciones: preciosPizzas.tipica , descripcion: "Ciruelas pasas y tocineta."},
+        { nombre: "Toc", opciones: preciosPizzas.tipica , descripcion: "Maiz tierno, queso cheddar y tocineta."},
+        { nombre: "Vegetariana", opciones: preciosPizzas.tipica , descripcion: "Cebolla, tomate, pimentón asado, aceitunas, champiñones y orégano."},
+        { nombre: "Frutti Molle", opciones: preciosPizzas.tipica , descripcion: "Cerezas, durazno y piña."},
+        { nombre: "Bocadillo Tocineta", opciones: preciosPizzas.tipica , descripcion: "Queso mozzarella, tocineta y bocadillo."},
+        { nombre: "Suprema", opciones: preciosPizzas.tipica , descripcion: "Queso mozzarella, jamón, cabano, salami, pimentón, cebolla y orégano."},
+        { nombre: "Pollo Bbq", opciones: preciosPizzas.tipica , descripcion: "Queso mozzarella, pollo aderezado con salsa BBQ."},
+        { nombre: "Pollo Champiñones", opciones: preciosPizzas.tipica , descripcion: "Queso mozzarella, pollo y champiñones."},
+        { nombre: "Pepperoni Americano", opciones: preciosPizzas.tipica , descripcion: "Queso mozzarella y pepperoni americano."}        
     ],
     //*****Variedades de los sabores de las Adiciones********/
      "Adiciones": [
