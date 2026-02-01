@@ -32,10 +32,14 @@ function renderProducts(categoria) {
             ? `$${Math.min(...precios).toLocaleString()}+` 
             : `$${precios[0].toLocaleString()}`;
 
+        const htmlDescripcion = p.descripcion 
+            ? `<p class="product-desc">${p.descripcion}</p>` 
+            : '';
+
         return `
             <div class="card" onclick='abrirSeleccion(${JSON.stringify(p)})'>
                 <h4>${p.nombre}</h4>
-                <p class="price">${precioMostrar}</p>
+                ${htmlDescripcion} <p class="price">${precioMostrar}</p>
             </div>
         `;
     }).join('');

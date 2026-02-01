@@ -113,18 +113,18 @@ const menuData = {
         { nombre: "Al Burro", opciones: preciosPastas.alBurro , descripcion: "Salteado en mantequilla, queso parmesano y albahaca fresca."},
         { nombre: "Bolognesa", opciones: preciosPastas.bolognesa, descripcion: "Carne a la bolognesa en salsa napolitana y queso parmesano." },
         { nombre: "Pollo Champiñón", opciones: preciosPastas.polloChampiñon , descripcion: "Trozos de pollo, champiñones salteados, salsa napolitana y queso parmesano." },
-        { nombre: "Carbonara", opciones: preciosPastas.carbonara },
-        { nombre: "Marinera", opciones: preciosPastas.marinera },
-        { nombre: "Pesto Camarones", opciones: preciosPastas.pestoCamarones },
-        { nombre: "Alfredo Pollo", opciones: preciosPastas.alfredoPollo },
-        { nombre: "Amatriziana", opciones: preciosPastas.amatriziana }
+        { nombre: "Carbonara", opciones: preciosPastas.carbonara, descripcion: "Ajo, cebolla, tocineta, salsa blanca, perejil y queso parmesano."  },
+        { nombre: "Marinera", opciones: preciosPastas.marinera , descripcion: "Anillos de calamar, camarones, mejillones, calamar pota, salsa napolitana y queso parmesano." },
+        { nombre: "Pesto Camarones", opciones: preciosPastas.pestoCamarones , descripcion: "Anillos de calamar, camarones, mejillones, calamar pota, salsa napolitana y queso parmesano."  },
+        { nombre: "Alfredo Pollo", opciones: preciosPastas.alfredoPollo , descripcion: "Pollo, cebolla, salsa blanca, salpimienta, psata de ajo y queso parmesano." },
+        { nombre: "Amatriziana", opciones: preciosPastas.amatriziana, descripcion: "Tocineta, cebolla, tomates pelados, pasta de ajo, salsa napolitana, pimienta roja y queso parmesano." }
     ],
 //*******Variedades Lasañas**********/  
     "Lasañas": [
-        { nombre: "Lasaña Mixta", opciones: preciosLasañas.lasañaMixta },
-        { nombre: "Napolitana Pollo Champiñon", opciones: preciosLasañas.LasañaNapolitanaPolloChampiñon },
-        { nombre: "Lasaña Vegetales Pollo", opciones: preciosLasañas.lasañaVegetalesPollo },
-        { nombre: "Lasaña Molle", opciones: preciosLasañas.lasañaMolle },
+        { nombre: "Lasaña Mixta", opciones: preciosLasañas.lasañaMixta , descripcion: "Carne a la bolognesa, pollo, champiñones y salsa napolitana."  },
+        { nombre: "Napolitana Pollo Champiñon", opciones: preciosLasañas.LasañaNapolitanaPolloChampiñon , descripcion: "Pollo, cahampiñones, rodajas de tomate, salsa napolitana y albahaca genovesa."  },
+        { nombre: "Lasaña Vegetales Pollo", opciones: preciosLasañas.lasañaVegetalesPollo , descripcion: "Pollo, cebolla, tomate, pimentón asado, aceitunas, champiñones, y salsa napolitana." },
+        { nombre: "Lasaña Molle", opciones: preciosLasañas.lasañaMolle , descripcion: "Pollo, champiñones y salsa napolitana." },
         { nombre: "Lasaña Pollo Champiñones", opciones: preciosLasañas.lasañaPolloChampiñones },
         { nombre: "Lasaña Bolognesa", opciones: preciosLasañas.lasañaBolognesa },
         { nombre: "Lasaña Vegetariana", opciones: preciosLasañas.lasañaVegetariana },
