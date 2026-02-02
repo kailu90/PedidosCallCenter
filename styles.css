@@ -22,6 +22,18 @@ body {
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 5px;
+}
+
+.btn-sede {
+    width: 100%;
+    padding: 5px;
+    background: #10b981;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .app-container {
@@ -37,6 +49,7 @@ body {
     gap: 20px;
     height: calc(100vh - 100px); /* Ajusta a la altura de la pantalla */
     align-items: start;
+    padding-top: 10px;
 }
 
 .categories {
@@ -66,6 +79,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 15px;
+    padding: 0 10px;
 }
 
 .card {
@@ -83,7 +97,11 @@ body {
 .card h4 { margin-bottom: 5px; font-size: 0.9rem; }
 .card .price { color: var(--primary); font-weight: bold; }
 
-/* Comanda */
+
+
+
+
+/****************ESTILOS CARRITO DE COMPRAS******************/
 .order-panel {
     background: var(--white);
     border-left: 1px solid #e2e8f0;
@@ -122,6 +140,76 @@ body {
     cursor: pointer;
 }
 
+.btn-delete {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 0.8rem; /* Ajusta el tamaño de la caneca */
+    margin-left: 10px;
+    transition: transform 0.2s ease;
+    filter: grayscale(1); /* Opcional: la hace gris hasta que pasas el mouse */
+}
+
+.btn-delete:hover {
+    transform: scale(1.2); /* Efecto de agrandado al pasar el mouse */
+    filter: grayscale(0);   /* Recupera el color original al pasar el mouse */
+}
+
+
+
+
+
+/********ESTILOS DEL CHECKOUT; DATOS DEL CLIENTE****************/
+
+.checkout-modal {
+    max-width: 500px !important;
+}
+
+.checkout-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide en dos columnas iguales */
+    gap: 10px;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+.checkout-container input, .checkout-container select, .checkout-container textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.checkout-container textarea {
+    height: 80px;
+    resize: none;
+}
+
+.btn-print {
+    background: #10b981;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+
+
+
+/***************ESTILOS DEL MODAL DE TAMAÑOS DE LOS PRODUCTOS Y SUS PRECIOS.***********/
 /***Estilos modal variedades productos*****/
 .modal-overlay {
     position: fixed;
@@ -201,8 +289,91 @@ body {
 
 
 
+/****************ESTILOS DE BARRA DE BUSQUEDA POR NOMBRE DE PRODUCTO******/
+
+
+.search-container {
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+#productSearch {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#productSearch:focus {
+    border-color: #2563eb; /* Azul corporativo */
+    box-shadow: 0 0 8px rgba(37, 99, 235, 0.2);
+}
+
+
+
+
 @media print {
-    .no-print { display: none; }
-    .app-container { display: block; }
-    .order-panel { width: 100%; border: none; }
+    /* Ocultar interfaz de la pantalla */
+    .menu-sidebar, .main-content, header, .modal-overlay, .no-print,
+    .btn-delete, .btn-print, #btnFinalizar { 
+        display: none !important; 
+    }
+
+    /* Configurar el ticket térmico */
+    body {
+        background: white !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .order-panel {
+        width: 100% !important;
+        max-width: 100% !important;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 0 5px !important;
+        border: none !important;
+    }
+
+    .order-title-print {
+        text-align: center;
+        font-size: 14pt;
+        margin-top: 5px;
+        text-transform: uppercase;
+    }
+
+    .order-number-print {
+        display: block;
+        text-align: center;
+        font-size: 28pt !important; /* Tamaño muy grande */
+        font-weight: 900 !important;
+        margin: 10px 0;
+        border: 2px solid black; /* Recuadro para resaltar */
+        padding: 5px;
+    }
+
+    /* Fuente de ticket para alineación perfecta */
+    .order-items, .info-cliente-ticket {
+        font-family: 'Courier New', Courier, monospace !important;
+        font-size: 11pt !important;
+        color: black !important;
+    }
+
+    .item-row {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px dashed #000 !important;
+        margin-bottom: 4px;
+        padding-bottom: 2px;
+    }
+
+    .total-row {
+        font-size: 14pt !important;
+        margin-top: 10px;
+        border-top: 2px solid #000;
+    }
 }

@@ -54,9 +54,10 @@ const preciosHamburguesas = {
     hamburguesaGolden:   { "Unidad": 28000 },
     hamburguesaDobleCarne: { "Unidad": 33000 }
 };
-const preciosSanduches = {
-    sanduchePolloJamon: { "Unidad": 22000 },
-    sanducheAtun:       { "Unidad": 28000 }
+const preciosSandwiches = {
+    sandwichePollo: { "Unidad": 22000 },
+    sandwicheJamon: { "Unidad": 22000 },
+    sandwicheAtun:       { "Unidad": 28000 }
 };
 const preciosEnsaladas = {
     ensaladaPrimaveraPollo: { "Unidad": 29000 },
@@ -70,6 +71,10 @@ const preciosBebidas = {
     limonadaCerezada:   { "Unidad": 13200 },
     limonadaCoco:       { "Unidad": 16000 },
     limonadaHierbabuena:{ "Unidad": 11500 },
+
+    // Jarra de Té
+    jarraTeDurazno:    { "Unidad": 15500 },
+    jarraTeLimon:    { "Unidad": 15500 },
     
     // Cervezas
     cervezaNacional:    { "Unidad": 6600 }, // Poker - Costeña
@@ -84,17 +89,23 @@ const preciosBebidas = {
     // Refrescos
     jugoHitVidrio:      { "Unidad": 4800 },
     gaseosa:            { "350 ml": 4300, "400 ml": 5800, "1.5 ltr": 8500 },
-    agua:               { "Unidad": 4700 },
+    agua:               { "Unidad": 4700 }
+};
 
-    // Especialidades
-    malteadas:          { "Unidad": 17000 },
-    granizados:         { "Unidad": 16500 },
-    sodasMicheladas:    { "Unidad": 16500 },
+ // Especialidades
+const preciosEspecialidades = {    
+    malteadas:          { "Oreo": 17000, "Frutos Rojos": 17000 },
+    granizados:         { "Mango Viche": 16500, "Café": 16500 },
+    sodasMicheladas:    { "Frutos amarillos": 16500 , "Frutos rojos": 16500 , "Lychee": 16500 },
     tamarindoMichelado: { "Unidad": 10500 },
-    bebidaConLicor:     { "unidad": 20000 },
-    infusiones:         { "Unidad": 7400 },
-    cafeOrigen:         { "unidad": 6800 },
-    brownieHelado:      { "Unidad": 12700 }
+    copaSangria:        { "unidad": 20000 },
+    infusiones:         { "Alegria": 7400, "Calma" : 7400, "Bienestar": 7400 },
+    cafeOrigen:         { "unidad": 6800 }   
+};
+   
+// Postres   
+const preciosPostres = {    
+     brownieHelado:      { "Unidad": 12700 }   
 };
 
 
@@ -211,58 +222,69 @@ const menuData = {
     ],
     //**Variedades de Hamburguesas**/
       "Hamburguesas": [
-        { nombre: "Sencilla", opciones: preciosHamburguesas.hamburguesaSencilla},
-        { nombre: "Especial", opciones: preciosHamburguesas.hamburguesaEspecial},
-        { nombre: "Estofada", opciones: preciosHamburguesas.hamburguesaEstofada},
-        { nombre: "Golden", opciones: preciosHamburguesas.hamburguesaGolden},
-        { nombre: "Doble Carne", opciones: preciosHamburguesas.hamburguesaDobleCarne}
+        { nombre: "Sencilla", opciones: preciosHamburguesas.hamburguesaSencilla , descripcion: "Carne de res 140 gr, o filete de pollo de 150 gr, queso fundido, tocineta asada, pan artesanal, salsa de tocineta, lechuga, tomate y cebolla."},
+        { nombre: "Especial", opciones: preciosHamburguesas.hamburguesaEspecial , descripcion: "Carne de res 140 gr, o filete de pollo de 150 gr, queso fundido, tocineta asada, pan artesanal, salsa de tocineta, piña, pepperoni, lechuga, tomate y cebolla."},
+        { nombre: "Estofada", opciones: preciosHamburguesas.hamburguesaEstofada , descripcion: "Carne de res 140 gr, o filete de pollo de 150 gr, pan pizza, jamón, queso fundido, lechuga, tomate, cebolla, salsas y nuestra salsa MOLLE."},
+        { nombre: "Golden", opciones: preciosHamburguesas.hamburguesaGolden , descripcion: "Carne de res 140 gr, queso mozzarella, queso cheddar, queso crema, tocineta asada, pan artesanal, tomate, lechiga romana, salsa tártara y salsa de frutos amarillos."},
+        { nombre: "Doble Carne", opciones: preciosHamburguesas.hamburguesaDobleCarne, descripcion: "Doble Carne de res 140 gr, o doble filete de pollo de 150 gr, queso fundido, tocineta asada, pan artesanal, salsa de tocineta, lechuga, tomate y cebolla."}
     ],
     //**Variedades de Sanduches***/
-    "Sanduches": [
-        { nombre: "Sanduche Pollo Jamon", opciones: preciosSanduches.sanduchePolloJamon},
-        { nombre: "Sanduche Atun", opciones: preciosSanduches.sanducheAtun }
+    "Sandwiches": [
+        { nombre: "Sandwiche Pollo", opciones: preciosSandwiches.sandwichePollo , descripcion: "Pan italiano, queso fundido, tocineta, lechuga, tomate, cebolla y salsas."},
+        { nombre: "Sandwiche Jamon", opciones: preciosSandwiches.sandwicheJamon , descripcion: "Pan italiano, queso fundido, tocineta, lechuga, tomate, cebolla y salsas."},
+        { nombre: "Sandwiche Atun", opciones: preciosSandwiches.sandwicheAtun , descripcion: "Pan italiano, queso fundido, tocineta, lechuga, tomate, cebolla y salsas."}
     ],
     //**Variedades de Ensaladas***/
     "Ensaladas": [
-        { nombre: "Ensalada Primavera Pollo", opciones: preciosEnsaladas.ensaladaPrimaveraPollo},
-        { nombre: "Ensalada Primavera Atun", opciones: preciosEnsaladas.ensaladaPrimaveraAtun},
-        { nombre: "Ensalada Molle", opciones: preciosEnsaladas.ensaladaMolle },
-        { nombre: "Ensalada Tijuana",opciones: preciosEnsaladas.ensaladaTijuana }
+        { nombre: "Ensalada Primavera Pollo", opciones: preciosEnsaladas.ensaladaPrimaveraPollo, descripcion: "Mix de lechugas, pasta fusilli, cebolla, tomate y vinagreta de la casa."},
+        { nombre: "Ensalada Primavera Atun", opciones: preciosEnsaladas.ensaladaPrimaveraAtun, descripcion: "Mix de lechugas, pasta fusilli, cebolla, tomate y vinagreta de la casa."},
+        { nombre: "Ensalada Molle", opciones: preciosEnsaladas.ensaladaMolle , descripcion: "Batavia, pollo desmechado, maíz tierno, piña, jamón, queso mozzarella y salsa MOLLE."},
+        { nombre: "Ensalada Tijuana",opciones: preciosEnsaladas.ensaladaTijuana , descripcion: "Miz de lechugas, pollo, queso, tocineta, maíz, aguacate y pico e'gallo (tomate y cilantro aderezados)."}
     ],
     //**Variedades de Bebidas***/
      "Limonadas": [
-    { nombre: "Natural", opciones: preciosBebidas.limonadaNatural },
-    { nombre: "Cerezada", opciones: preciosBebidas.limonadaCerezada },
-    { nombre: "Coco", opciones: preciosBebidas.limonadaCoco },
-    { nombre: "Hierbabuena", opciones: preciosBebidas.limonadaHierbabuena }
+    { nombre: "Limonada Natural", opciones: preciosBebidas.limonadaNatural },
+    { nombre: "Limonada Cerezada", opciones: preciosBebidas.limonadaCerezada },
+    { nombre: "Limonada Coco", opciones: preciosBebidas.limonadaCoco },
+    { nombre: "Limonada Hierbabuena", opciones: preciosBebidas.limonadaHierbabuena }
     ],
 
-    "Cervezas": [
-        { nombre: "Nacional (Poker/Costeña)", opciones: preciosBebidas.cervezaNacional },
-        { nombre: "Premium (Club/Aguila/Redds)", opciones: preciosBebidas.cervezaPremium },
-        { nombre: "Corona", opciones: preciosBebidas.cervezaCorona },
-        { nombre: "Vaso Michelado", opciones: preciosBebidas.vasoMichelado }
+     "Jugos Naturales": [
+        { nombre: "Jugo en Agua", opciones: preciosBebidas.jugoEnAgua },
+        { nombre: "Jugo en Leche", opciones: preciosBebidas.jugoEnLeche },
     ],
 
-    "Jugos Naturales": [
-        { nombre: "En Agua", opciones: preciosBebidas.jugoEnAgua },
-        { nombre: "En Leche", opciones: preciosBebidas.jugoEnLeche },
-        { nombre: "Mandarina", opciones: preciosBebidas.jugoMandarina }
+     "Jarra de Té": [
+        { nombre: "Jarra de Té - Durazno", opciones: preciosBebidas.jarraTeDurazno },
+        { nombre: "Jarra de Té - limón", opciones: preciosBebidas.jarraTeLimon}
     ],
 
-    "Refrescos": [
-        { nombre: "Jugo Hit Vidrio", opciones: preciosBebidas.jugoHitVidrio },
-        { nombre: "Gaseosa", opciones: preciosBebidas.gaseosa },
+     "Refrescos": [
+        { nombre: "Jugo Hit Vidrio", opciones: preciosBebidas.jugoHitVidrio , descripcion: "Jugo hit 237 ml vidrio."},
+        { nombre: "Gaseosa", opciones: preciosBebidas.gaseosa , descripcion: "Sabores postobón."},
         { nombre: "Agua", opciones: preciosBebidas.agua }
     ],
 
+    "Cervezas": [
+        { nombre: "Cerveza Nacional (Poker/Costeña)", opciones: preciosBebidas.cervezaNacional },
+        { nombre: "Cerveza Premium (Club/Aguila/Redds)", opciones: preciosBebidas.cervezaPremium },
+        { nombre: "Cerveza Corona", opciones: preciosBebidas.cervezaCorona },
+        { nombre: "Vaso Michelado", opciones: preciosBebidas.vasoMichelado }
+    ],
+  
     "Especialidades": [
-        { nombre: "Malteadas", opciones: preciosBebidas.malteadas },
-        { nombre: "Granizados", opciones: preciosBebidas.granizados },
-        { nombre: "Sodas Micheladas", opciones: preciosBebidas.sodasMicheladas },
-        { nombre: "Tamarindo Michelado", opciones: preciosBebidas.tamarindoMichelado },
-        { nombre: "Infusiones", opciones: preciosBebidas.infusiones },
-        { nombre: "Brownie con Helado", opciones: preciosBebidas.brownieHelado }
+        { nombre: "Malteadas", opciones: preciosEspecialidades.malteadas },
+        { nombre: "Granizados", opciones: preciosEspecialidades.granizados },
+        { nombre: "Sodas Micheladas", opciones: preciosEspecialidades.sodasMicheladas },
+        { nombre: "Tamarindo Michelado", opciones: preciosEspecialidades.tamarindoMichelado },
+        { nombre: "Copa de Sangría", opciones: preciosEspecialidades.copaSangria },
+        { nombre: "Infusiones", opciones: preciosEspecialidades.infusiones },
+        { nombre: "Cafe Origen", opciones: preciosEspecialidades.cafeOrigen , descripcion: "250 ml de Café (4 pocillos 62.5 ml aproximadamente)."},
+        
+    ],
+
+    "Postres": [
+       { nombre: "Brownie con Helado", opciones: preciosPostres.brownieHelado }       
     ]
         
     };

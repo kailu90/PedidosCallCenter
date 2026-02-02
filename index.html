@@ -12,7 +12,7 @@
         <div class="logo">MOLLE PIZZA</div>
         <div class="header-controls">
             <label>Sede:</label>
-            <select id="sedeSelector">
+            <select id="sedeSelector" class="btn-sede">
                 <option value="buga">Buga</option>
                 <option value="salomia">Cali-Salomia</option>
                 <option value="granada">Cali-Granada</option>
@@ -26,25 +26,49 @@
     <div class="app-container">
         <section class="menu-panel no-print">
             <nav class="categories" id="categoryNav"></nav>
-            <div id="productGrid" class="product-grid"></div>
-        </section>
+        
+            <div class="content-area">
+            <div id="search-wrapper"></div> <div id="productGrid" class="product-grid"></div>
+        </div>
+    </section>
 
         <aside class="order-panel">
-            <h2 class="panel-title">Resumen de Pedido</h2>
             <div id="orderItems" class="order-items">
                 <p class="empty-msg">No hay productos seleccionados</p>
             </div>
-            
             <div class="order-footer">
                 <div class="total-row">
                     <span>TOTAL:</span>
                     <span id="totalDisplay">$0</span>
                 </div>
-                <button class="btn-print" onclick="procesarPedido()">ENVIAR E IMPRIMIR</button>
+                <button class="btn-print" onclick="abrirCheckout()">FINALIZAR PEDIDO</button>
             </div>
         </aside>
     </div>
 
+
+   <div id="modal-checkout" class="modal-overlay" style="display:none;">
+    <div class="modal-content checkout-container" style="max-width:500px;">
+        <h3>Finalizar Pedido</h3>
+        <div class="form-grid">
+            <input type="tel" id="clienteTelefono" placeholder="Teléfono / WhatsApp" maxlength="10">
+            <input type="text" id="clienteNombre" placeholder="Nombre Cliente">           
+            <input type="text" id="clienteDireccion" placeholder="Dirección Completa" class="full-width">
+            <select id="metodoPago" class="full-width">
+                <option value="" disabled selected>Método de Pago</option>
+                <option value="Efectivo">Efectivo</option>
+                <option value="Nequi/Daviplata">Nequi / Daviplata</option>
+                <option value="Datafono">Datáfono</option>
+            </select>
+            <textarea id="observaciones" placeholder="Observaciones..." class="full-width"></textarea>
+        </div>
+        <div style="display:flex; gap:10px; margin-top:15px;">
+            <button onclick="cerrarCheckout()" class="btn-cancelar">Volver</button>
+            <button onclick="procesarPedidoFinal()" class="btn-print">IMPRIMIR TICKET</button>
+        </div>
+    </div>
+</div>
+</div>
     <div id="modal-seleccion" class="modal-overlay" style="display:none;">
         <div class="modal-content">
             <h3 id="modal-titulo">Seleccionar Tamaño</h3>
