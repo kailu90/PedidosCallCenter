@@ -55,8 +55,7 @@ const preciosHamburguesas = {
     hamburguesaDobleCarne: { "Unidad": 33000 }
 };
 const preciosSandwiches = {
-    sandwichePollo: { "Unidad": 22000 },
-    sandwicheJamon: { "Unidad": 22000 },
+    sandwichePolloJamon: { "Pollo": 22000 , "Jamon": 22000 ,  },
     sandwicheAtun:       { "Unidad": 28000 }
 };
 const preciosEnsaladas = {
@@ -67,28 +66,25 @@ const preciosEnsaladas = {
 };
 const preciosBebidas = {
     // Limonadas
-    limonadaNatural:    { "Unidad": 9900 },
-    limonadaCerezada:   { "Unidad": 13200 },
-    limonadaCoco:       { "Unidad": 16000 },
-    limonadaHierbabuena:{ "Unidad": 11500 },
+    limonada:    { "Natural": 9900 , "Cerezada": 13200 , "Coco": 16000 , "Hierbabuena": 11500 },   
 
     // Jarra de Té
-    jarraTeDurazno:    { "Unidad": 15500 },
-    jarraTeLimon:    { "Unidad": 15500 },
+    jarraDeTe:    { "Durazno": 15500 , "Limón": 15500 },    
     
     // Cervezas
-    cervezaNacional:    { "Unidad": 6600 }, // Poker - Costeña
-    cervezaPremium:     { "Unidad": 7300 }, // Club - Aguila - Redds
+    cervezaNacional:    { "Poker": 6600 , "Costeña": 6600 },
+    cervezaPremium:     { "Club": 7300 , "Aguila": 7300 , "Redds": 7300 },
     cervezaCorona:      { "Unidad": 10500 },
-    vasoMichelado:      { "Unidad": 22000 },
+    vasoMichelado:      { "Unidad": 2200 },
 
     // Jugos Naturales
-    jugoEnAgua:         { "Unidad": 9500 },
-    jugoEnLeche:        { "Unidad": 11600 },
+    jugoEnAgua:         { "Mango": 9500 , "Fresa": 9500 , "Mora": 9500  , "Mandarina": 9500 , "naranja": 9500 , "lulo": 9500 , "Guanabana": 9500 , "Maracuyá": 9500 },
+    jugoEnLeche:         { "Mango": 11600 , "Fresa": 11600 , "Mora": 11600  , "Mandarina": 11600 , "naranja": 11600 , "lulo": 11600 , "Guanabana": 11600 , "Maracuyá": 11600 },
 
     // Refrescos
-    jugoHitVidrio:      { "Unidad": 4800 },
-    gaseosa:            { "350 ml": 4300, "400 ml": 5800, "1.5 ltr": 8500 },
+    jugoHitVidrio:       { "Tropical": 4800, "Mora": 4800, "Naranja/Piña": 4800, "Mango": 4800 , "Lulo": 4800 },
+    gaseosa400ml:       { "Naranja": 5800, "Uva": 5800, "Manzana": 5800, "Colombiana": 5800, "Kola": 5800, "Tamarindo": 5800 },
+    gaseosa1500ml:      { "Naranja": 8500, "Uva": 8500, "Manzana": 8500, "Colombiana": 8500, "Kola": 8500, "Tamarindo": 8500 },
     agua:               { "Unidad": 4700 }
 };
 
@@ -230,8 +226,7 @@ const menuData = {
     ],
     //**Variedades de Sanduches***/
     "Sandwiches": [
-        { nombre: "Sandwiche Pollo", opciones: preciosSandwiches.sandwichePollo , descripcion: "Pan italiano, queso fundido, tocineta, lechuga, tomate, cebolla y salsas."},
-        { nombre: "Sandwiche Jamon", opciones: preciosSandwiches.sandwicheJamon , descripcion: "Pan italiano, queso fundido, tocineta, lechuga, tomate, cebolla y salsas."},
+        { nombre: "Sandwiche Pollo Jamon", opciones: preciosSandwiches.sandwichePolloJamon, descripcion: "Pan italiano, queso fundido, tocineta, lechuga, tomate, cebolla y salsas."},
         { nombre: "Sandwiche Atun", opciones: preciosSandwiches.sandwicheAtun , descripcion: "Pan italiano, queso fundido, tocineta, lechuga, tomate, cebolla y salsas."}
     ],
     //**Variedades de Ensaladas***/
@@ -243,10 +238,7 @@ const menuData = {
     ],
     //**Variedades de Bebidas***/
      "Limonadas": [
-    { nombre: "Limonada Natural", opciones: preciosBebidas.limonadaNatural },
-    { nombre: "Limonada Cerezada", opciones: preciosBebidas.limonadaCerezada },
-    { nombre: "Limonada Coco", opciones: preciosBebidas.limonadaCoco },
-    { nombre: "Limonada Hierbabuena", opciones: preciosBebidas.limonadaHierbabuena }
+        { nombre: "Limonada", opciones: preciosBebidas.limonada },
     ],
 
      "Jugos Naturales": [
@@ -255,19 +247,19 @@ const menuData = {
     ],
 
      "Jarra de Té": [
-        { nombre: "Jarra de Té - Durazno", opciones: preciosBebidas.jarraTeDurazno },
-        { nombre: "Jarra de Té - limón", opciones: preciosBebidas.jarraTeLimon}
+        { nombre: "Jarra de Té", opciones: preciosBebidas.jarraDeTe },
     ],
 
      "Refrescos": [
         { nombre: "Jugo Hit Vidrio", opciones: preciosBebidas.jugoHitVidrio , descripcion: "Jugo hit 237 ml vidrio."},
-        { nombre: "Gaseosa", opciones: preciosBebidas.gaseosa , descripcion: "Sabores postobón."},
+        { nombre: "Gaseosa 400 ml", opciones: preciosBebidas.gaseosa400ml , descripcion: "Sabores postobón."},
+        { nombre: "Gaseosa 1.5 lts", opciones: preciosBebidas.gaseosa1500ml , descripcion: "Sabores postobón."},
         { nombre: "Agua", opciones: preciosBebidas.agua }
     ],
 
     "Cervezas": [
-        { nombre: "Cerveza Nacional (Poker/Costeña)", opciones: preciosBebidas.cervezaNacional },
-        { nombre: "Cerveza Premium (Club/Aguila/Redds)", opciones: preciosBebidas.cervezaPremium },
+        { nombre: "Cerveza Nacional", opciones: preciosBebidas.cervezaNacional },
+        { nombre: "Cerveza Premium", opciones: preciosBebidas.cervezaPremium },
         { nombre: "Cerveza Corona", opciones: preciosBebidas.cervezaCorona },
         { nombre: "Vaso Michelado", opciones: preciosBebidas.vasoMichelado }
     ],
@@ -279,8 +271,7 @@ const menuData = {
         { nombre: "Tamarindo Michelado", opciones: preciosEspecialidades.tamarindoMichelado },
         { nombre: "Copa de Sangría", opciones: preciosEspecialidades.copaSangria },
         { nombre: "Infusiones", opciones: preciosEspecialidades.infusiones },
-        { nombre: "Cafe Origen", opciones: preciosEspecialidades.cafeOrigen , descripcion: "250 ml de Café (4 pocillos 62.5 ml aproximadamente)."},
-        
+        { nombre: "Cafe Origen", opciones: preciosEspecialidades.cafeOrigen , descripcion: "250 ml de Café (4 pocillos 62.5 ml aproximadamente)."},        
     ],
 
     "Postres": [
