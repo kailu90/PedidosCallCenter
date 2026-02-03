@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Call Center - Sistema de Ventas</title>
+    <title>Call Center - Sistema Pedidos</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -14,10 +14,10 @@
             <label>Sede:</label>
             <select id="sedeSelector" class="btn-sede">
                 <option value="buga">Buga</option>
-                <option value="salomia">Cali-Salomia</option>
-                <option value="granada">Cali-Granada</option>
-                <option value="limonar">Cali-Limonar</option>
-                <option value="san fernando">Cali - San Fernando</option>
+                <option value="salomia">Salomia</option>
+                <option value="granada">Granada</option>
+                <option value="limonar">Limonar</option>
+                <option value="san fernando">San Fernando</option>
                 <option value="jamundi">Jamundí</option>
             </select>
         </div>
@@ -78,5 +78,62 @@
     </div>
     <script src="products.js"></script>      
     <script src="app.js"></script>
+    
+    <script type="module">
+    // 1. Importamos la base (App) y la base de datos (Firestore)
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    import { getFirestore, collection, addDoc, serverTimestamp , doc, runTransaction } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+    // 2. Tus credenciales NUEVAS de Molle Pizza
+    const firebaseConfig = {
+        apiKey: "AIzaSyAlyIoXRLMr0i20qU6dMkQDTSWotEht3T0",
+        authDomain: "mollepizza-f05d8.firebaseapp.com",
+        projectId: "mollepizza-f05d8",
+        storageBucket: "mollepizza-f05d8.firebasestorage.app",
+        messagingSenderId: "639672533177",
+        appId: "1:639672533177:web:dcef1c044b320bb89adb68"
+    };
+
+    // 3. Inicializamos los servicios
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app); // <--- ¡Esto es lo que faltaba!
+
+    // 4. Creamos la función "puente" para que tu app.js pueda guardar datos
+    // Dentro de tu script en index.html
+window.enviarAFirebase = async (datosPedido) => {
+    // Debe coincidir exactamente con tu imagen: "contadores" y "ultimoIdPedidos"
+    const contadorRef = doc(db, "contadores", "ultimoIdPedidos");
+
+    try {
+        const nuevoNumeroPedido = await runTransaction(db, async (transaction) => {
+            const contadorDoc = await transaction.get(contadorRef);
+            
+            if (!contadorDoc.exists()) {
+                throw "El documento de contador no existe en Firebase";
+            }
+
+            const nuevoId = contadorDoc.data().ultimoId + 1;
+            
+            // Actualizamos el contador en la base de datos
+            transaction.update(contadorRef, { ultimoId: nuevoId });
+            return nuevoId;
+        });
+
+        // Guardamos el pedido incluyendo el nPedido consecutivo
+        const docRef = await addDoc(collection(db, "pedidos"), {
+            ...datosPedido,
+            nPedido: nuevoNumeroPedido, 
+            fecha: serverTimestamp(),
+            estado: "pendiente"
+        });
+
+        return nuevoNumeroPedido; 
+    } catch (error) {
+        console.error("Error en la secuencia del contador:", error);
+        throw error;
+    }
+};
+</script>
+    
 </body>
 </html>

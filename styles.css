@@ -1,5 +1,5 @@
 :root {
-    --primary: #006d77; /* Color Teal de Molle */
+    --primary: #75892A; /* Color Teal de Molle */
     --accent: #e63946;
     --bg-light: #f1f5f9;
     --text-dark: #334155;
@@ -28,8 +28,8 @@ body {
 .btn-sede {
     width: 100%;
     padding: 5px;
-    background: #10b981;
-    color: white;
+    background: var(--bg-light);
+    color: black;
     border: none;
     border-radius: 8px;
     font-weight: bold;
@@ -196,8 +196,8 @@ body {
 }
 
 .btn-print {
-    background: #10b981;
-    color: white;
+    background: var(--bg-light);
+    color: black;
     border: none;
     padding: 12px 25px;
     border-radius: 6px;

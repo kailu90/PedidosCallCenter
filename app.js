@@ -72,7 +72,7 @@ function renderProducts(categoria) {
             if (menuData[key]) productos = [...productos, ...menuData[key]];
         });
     } else if (categoria === "Bebidas") {
-        const llavesBebidas = ["Limonadas", "Jarra de Té", "Cervezas", "Jugos Naturales", "Refrescos", "Especialidades"];
+        const llavesBebidas = ["Limonadas", "Jarra de Té", "Cervezas", "Jugos Naturales", "Refrescos"];
         llavesBebidas.forEach(key => {
             if (menuData[key]) productos = [...productos, ...menuData[key]];
         });
@@ -230,36 +230,58 @@ function cerrarCheckout() {
 }
 
 //función para realizar el proceso del pago y capturar toda la información necesaria.
-function procesarPedidoFinal() {
+// Agregamos 'async' para poder esperar la respuesta de Firebase
+async function procesarPedidoFinal() {
     const datos = {
-        telefono: document.getElementById('clienteTelefono').value, // Cambiado de barrio a teléfono
+        telefono: document.getElementById('clienteTelefono').value,
         nombre: document.getElementById('clienteNombre').value,
         direccion: document.getElementById('clienteDireccion').value,
         pago: document.getElementById('metodoPago').value,
         obs: document.getElementById('observaciones').value,
-        sede: document.getElementById('sedeSelector').value
+        sede: document.getElementById('sedeSelector').value,
+        // Agregamos el contenido del carrito y el total para la base de datos
+        productos: carrito,
+        total: carrito.reduce((sum, item) => sum + item.precio, 0),
+        impreso: false
     };
 
-    // Validación actualizada
+    // Validación
     if (!datos.telefono || !datos.nombre || !datos.direccion || !datos.pago) {
         return alert("⚠️ Teléfono, Nombre, Dirección y Pago son obligatorios.");
     }
 
-    cerrarCheckout();
-    confirmarImpresion(datos);
+    try {
+        const pedidoId = await window.enviarAFirebase(datos);
+        console.log("Pedido guardado con éxito. ID:", pedidoId);
+
+        cerrarCheckout();
+
+        // 1. Limpiamos el carrito inmediatamente
+        carrito = [];
+        actualizarComanda();
+
+        // 2. Avisamos al operador
+        alert(`✅ ¡ÉXITO! El pedido #${pedidoId} ya está en camino a la sede ${datos.sede}.`);
+
+    } catch (error) {
+        console.error("Error:", error);
+        alert("Hubo un error al enviar el pedido.");
+    }
 }
 
-function confirmarImpresion(datos) {
+// Ahora recibe el 'pedidoId' de Firebase
+function confirmarImpresion(datos, pedidoId) {
     const container = document.getElementById('orderItems');
     
-    // 1. Evitar duplicados: Eliminamos cualquier encabezado previo antes de imprimir
+    // 1. Evitar duplicados
     const seccionesPrevias = container.querySelectorAll('.info-cliente-ticket');
     seccionesPrevias.forEach(s => s.remove());
 
-    // 2. Generar un número de pedido (puedes usar uno de tu BD o este aleatorio)
-    const nPedido = Math.floor(Math.random() * 90000) + 10000;
+    // 2. Usamos los últimos 5 caracteres del ID de Firebase como número de pedido
+    // Esto es mucho más profesional que un número aleatorio
+    const nPedido = pedidoId;
 
-    // 3. Crear el HTML con el Número de Pedido como protagonista
+    // 3. Crear el HTML (He actualizado el nombre a MOLLE PIZZA si es el caso)
     const infoHtml = `
         <div class="info-cliente-ticket" style="font-family: 'Courier New', monospace; color: black;">
             <h2 style="text-align:center; margin:0; font-size: 16pt;">MOLLE PIZZA</h2>
@@ -283,13 +305,10 @@ function confirmarImpresion(datos) {
         </div>
     `;
     
-    // Insertamos al inicio del contenedor
     container.insertAdjacentHTML('afterbegin', infoHtml);
-    
-    // 4. Pequeña pausa para asegurar que el DOM se actualice antes de abrir la ventana de impresión
-    setTimeout(() => {
-        window.print();
-    }, 300);
+    alert(`Pedido #${pedidoId} enviado correctamente a la sede ${datos.sede.toUpperCase()}`);
+    carrito = [];
+    actualizarComanda();
 }
 // Iniciar
 init();
